@@ -28,12 +28,12 @@ import os, sys
 import utils as ut
 
 # Load sound files
-path = '/archive/ahem_data/'
-sound_file_paths = [os.path.join(path, "ahem_sounds.wav"),
+path = 'data/'
+sound_file_paths = [os.path.join(path, "helpme.wav"),
                     os.path.join(path, "podcast_17_sample.wav"),
                    ]
 
-sound_names = ["ahem_sounds", "podcast_17_sample"]
+sound_names = ["helpme", "podcast_17_sample"]
 raw_sounds = ut.load_sound_files(sound_file_paths)
 
 windowsize = 6000  # size of sliding window (22050 samples == 0.5 sec)  
@@ -47,7 +47,7 @@ dimy = 5
 # create positive samples
 audiosamples = raw_sounds[0]
 numsamples = audiosamples.shape[0]
-for x in xrange(0, numsamples-windowsize, step):
+for x in range(0, numsamples-windowsize, step):
     numfiles +=1
     b = x               # begin 
     e = b+windowsize    # end 
