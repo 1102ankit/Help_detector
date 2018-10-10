@@ -27,7 +27,7 @@ import os, sys
 import utils as ut
 
 # Load sound files
-path = '/data'
+path = 'data/'
 sound_file_paths = [os.path.join(path, "provocation_dirty.wav"),
                     os.path.join(path, "provocation_clean.wav"),
                    ]
@@ -47,12 +47,12 @@ audiosamples = raw_sounds[0]
 numsamples = audiosamples.shape[0]
 numfiles = 0
 
-for x in xrange(0, numsamples-windowsize, step):
+for x in range(0, numsamples-windowsize, step):
     numfiles += 1 
     b = x               # begin 
     e = b+windowsize    # end 
     ut.printStuff('Creating spectrum image new samples [%d-%d] of %d file %d',(b,e, numsamples, numfiles))
-    filename = os.path.join(path, '/archive/ahem_data/new_sample/partial_spectrum_%d.png'%x)
+    filename = os.path.join(path, 'archive/partial_spectrum_%d.png'%x)
     ut.specgram_frombuffer(audiosamples[b:e], dimx, dimy, fname=filename, dpi=180)
     
         
